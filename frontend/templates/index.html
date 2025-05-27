@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Simple Blog</title>
+</head>
+<body>
+    <h1>📘 My Blog Posts</h1>
+
+    <ul>
+        {% for post in posts %}
+            <li>
+                <strong>{{ post.title }}</strong> — by {{ post.author }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
