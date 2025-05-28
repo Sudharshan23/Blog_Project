@@ -1,17 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Simple Blog</title>
+    <meta charset="UTF-8">
+    <title>My Cyber Blog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <h1>📘 My Blog Posts</h1>
+    <header>
+        <h1>🔐 My Cyber Blog</h1>
+    </header>
 
-    <ul>
+    <main>
+        <h2>Recent Posts</h2>
         {% for post in posts %}
-            <li>
-                <strong>{{ post.title }}</strong> — by {{ post.author }}
-            </li>
+            <div class="post-card">
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.content }}</p>
+            </div>
         {% endfor %}
-    </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My Cyber Blog</p>
+    </footer>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
