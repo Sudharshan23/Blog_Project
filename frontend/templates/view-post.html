@@ -1,0 +1,24 @@
+<!-- frontend/templates/view_post.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }} - My Cyber Blog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>My Cyber Blog</h1>
+        <a href="{{ url_for('routes.dashboard') }}">Back to Dashboard</a>
+    </header>
+
+    <main>
+        <div class="post-card">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content }}</p>
+        </div>
+    </main>
+
+    <footer><p>&copy; 2025 My Cyber Blog</p></footer>
+</body>
+</html>

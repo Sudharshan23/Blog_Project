@@ -22,6 +22,10 @@ static_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'fron
 app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 
 
+# Required for session support (used in login/logout)
+app.secret_key = "your-very-secret-key"
+
+
 # What it means:
 #   * This connects the routes you wrote in routes.py into the main app.
 #   * Now Flask knows about the /posts URL.

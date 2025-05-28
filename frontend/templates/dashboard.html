@@ -1,0 +1,45 @@
+<!-- frontend/templates/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - My Cyber Blog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>My Cyber Blog</h1>
+        <a href="{{ url_for('routes.logout') }}">Logout</a>
+    </header>
+
+    <main>
+        <h2>Your Posts</h2>
+
+        {% for post in posts %}
+            <div class="post-card">
+                <h3>
+                    <a href="{{ url_for('routes.view_post', post_id=loop.index0) }}">
+                        {{ post.title }}
+                    </a>
+                </h3>
+                <p>{{ post.content[:150] }}...</p>
+
+                <div class="post-actions">
+                    <a href="{{ url_for('routes.edit_post_page', post_id=loop.index0) }}" class="edit-button">✏️ Edit</a>
+                    <form method="POST" action="{{ url_for('routes.delete_post', post_id=loop.index0) }}" style="display:inline;">
+                        <button type="submit" class="delete-button" onclick="return confirm('Are you sure you want to delete this post?');">🗑️ Delete</button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+
+        <div style="margin-top: 30px;">
+            <a href="{{ url_for('routes.new_post_page') }}" class="create-button">➕ Create New Post</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My Cyber Blog</p>
+    </footer>
+</body>
+</html>

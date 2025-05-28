@@ -1,0 +1,30 @@
+<!-- frontend/templates/edit_post.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Post - My Cyber Blog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Edit Post</h1>
+    </header>
+
+    <main>
+        <form method="POST" action="{{ url_for('routes.update_post', post_id=post_id) }}" class="new-post-form">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value="{{ post.title }}" required>
+
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" required>{{ post.content }}</textarea>
+
+            <button type="submit">Update Post</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My Cyber Blog</p>
+    </footer>
+</body>
+</html>
