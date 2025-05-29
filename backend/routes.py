@@ -22,6 +22,7 @@ USERNAME = "admin"
 PASSWORD = "sudhar123@"
 
 
+
 # @routes.route("/posts"): this creates a route → http://localhost:5000/posts
 # When someone visits /, Flask will:
 #    * Run the hompage() function
